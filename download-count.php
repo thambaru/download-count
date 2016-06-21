@@ -6,7 +6,7 @@
   Version: 1.0
   Author: Thambaru Wijesekara
   Author URI: http://www.thambaru.com
-  License: GPLv2 or later
+  License: GPLv3 or later
   Text Domain: _wp_tnw_downloadcount
   Domain Path: ./l18n/
  */
