@@ -14,8 +14,8 @@ class WPTNWDownloadCount {
     }
 
     public function __construct() {
-	add_filter('manage_posts_columns', 'postColumnHead');
-	add_action('manage_posts_custom_column', 'postColumnContent', 10, 2);
+	add_filter('manage_posts_columns', array($this, 'postColumnHead'));
+	add_action('manage_posts_custom_column', array($this, 'postColumnContent'), 10, 2);
     }
 
     function postColumnHead($defaults) {
