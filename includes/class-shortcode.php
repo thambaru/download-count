@@ -12,12 +12,15 @@ class WPTNWDownloadCountShortCode {
     }
 
     function downloadLink($atts) {
+	global $post;
+
 	$atts = shortcode_atts(array(
-	    'link' => '#',
-	    'text' => 'Download'
+	    'link' => '',
+	    'title' => 'Download',
+	    'style' => ''
 		), $atts, 'downloadCount');
 
-	return '<a href="' . $atts['link'] . '" target="_blank" data-wptnwdownload="true">' . $atts['text'] . '</a>';
+	return "<span style='{$atts['style']}' data-href='{$atts['link']}' data-post='{$post->ID}' data-wptnwdownload='true'>{$atts['title']}</span>";
     }
 
 }

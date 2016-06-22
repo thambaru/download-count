@@ -13,4 +13,4 @@
 
 include 'includes/core-import.php';
 
-new WPTNWDownloadCount();
+new WPTNWDownloadCount(__FILE__);
