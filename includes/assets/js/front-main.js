@@ -5,13 +5,14 @@ jQuery(function ($) {
 
 	recordTheClick($(this).attr('data-post'));
 
-	window.open($(this).attr('data-href'), "_self");
+//	window.open($(this).attr('data-href'), "_self");
     });
 });
 
 function recordTheClick(postId) {
-    $.ajax({
+    jQuery.ajax({
 	url: ajaxurl,
-	data: {action: 'recordTheClick', postId: postId}
+	type: 'POST',
+	data: {action: 'record_the_click', postId: postId}
     })
 }

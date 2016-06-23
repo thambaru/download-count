@@ -32,14 +32,17 @@ class WPTNWDownloadCount {
     }
 
     function postColumnHead($defaults) {
-	$defaults['downloadCount'] = 'Download Count';
+	$defaults['downloadCount'] = 'Downloads';
 	return $defaults;
     }
 
     function postColumnContent($column_name, $post_ID) {
-	if ($column_name == 'downloadCount') {
-	    echo get_post_meta($post_ID, 'wptnwdownloadcount', true);
-	}
+	if ($column_name != 'downloadCount')
+	    return;
+
+	$count = get_post_meta($post_ID, 'wptnwdownloadcount', true);
+
+	echo empty($count) ? 0 : $count;
     }
 
 }

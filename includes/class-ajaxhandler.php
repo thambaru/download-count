@@ -6,9 +6,10 @@
  * @author thambaru
  */
 class WPTNWDownloadCountAjaxHandler {
-    
+
     public function __construct() {
-	add_action('wp_ajax_asana_token_check', array($this, 'recordTheClick'));
+	add_action('wp_ajax_record_the_click', array($this, 'recordTheClick'));
+	add_action('wp_ajax_nopriv_record_the_click', array($this, 'recordTheClick'));
 	$this->setAjaxURL();
     }
 
@@ -31,8 +32,8 @@ class WPTNWDownloadCountAjaxHandler {
      * 
      */
     function recordTheClick() {
-	$oldCount = get_post_meta($_POST['postId'], 'wptnwdownloadcount', true);
-	$newCount = empty($oldCount) ? 0 : $oldCount++;
+	$oldCount = (int) get_post_meta($_POST['postId'], 'wptnwdownloadcount', true);
+	$newCount = empty($oldCount) ? 1 : $oldCount + 1;
 	update_post_meta($_POST['postId'], 'wptnwdownloadcount', $newCount);
 	wp_die();
     }
