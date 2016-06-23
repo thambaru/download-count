@@ -5,7 +5,7 @@ jQuery(function ($) {
 
 	recordTheClick($(this).attr('data-post'));
 
-//	window.open($(this).attr('data-href'), "_self");
+	window.open($(this).attr('data-href'), "_self");
     });
 });
 

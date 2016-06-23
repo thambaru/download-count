@@ -17,10 +17,11 @@ class WPTNWDownloadCountShortCode {
 	$atts = shortcode_atts(array(
 	    'link' => '',
 	    'title' => 'Download',
-	    'style' => ''
+	    'style' => '',
+	    'class' => ''
 		), $atts, 'downloadCount');
 
-	return "<span style='{$atts['style']}' data-href='{$atts['link']}' data-post='{$post->ID}' data-wptnwdownload='true'>{$atts['title']}</span>";
+	return "<span class='{$atts['class']}' style='cursor:pointer;{$atts['style']}' data-href='{$atts['link']}' data-post='{$post->ID}' data-wptnwdownload='true'>{$atts['title']}</span>";
     }
 
 }
