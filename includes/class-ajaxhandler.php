@@ -10,7 +10,7 @@ class WPTNWDownloadCountAjaxHandler {
     public function __construct() {
 	add_action('wp_ajax_record_the_click', array($this, 'recordTheClick'));
 	add_action('wp_ajax_nopriv_record_the_click', array($this, 'recordTheClick'));
-	$this->setAjaxURL();
+	add_action('wp_head', array($this, 'setAjaxURL'));
     }
 
     /**
